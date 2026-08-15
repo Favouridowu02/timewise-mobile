@@ -4,7 +4,7 @@ A premium productivity mobile app built with **React Native** and **Expo**. Time
 
 <div align="center">
   <!-- Replace the src below with your actual GIF URL or local path -->
-  <img src="./assets/demo-placeholder.gif" alt="Timewise App Demo" width="300" />
+  <img src="./assets/demo.gif" alt="Timewise App Demo" width="300" />
 </div>
 ---
 
