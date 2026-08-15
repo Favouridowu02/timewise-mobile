@@ -1,0 +1,25 @@
+{
+  "cli": {
+    "version": ">= 7.2.0"
+  },
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyB4lzYaz8a0bgPvss0xB2iYDahXDYC8vTg",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "timewise-d03ba.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "timewise-d03ba",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "timewise-d03ba.firebasestorage.app",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "741829216527",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:741829216527:web:f48bd9ac33e50d5c0b967a",
+        "EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-GEMY1KPLC0"
+      }
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  }
+}

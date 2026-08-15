@@ -17,6 +17,10 @@ const firebaseConfig = {
   measurementId: process.env.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
+console.log("=== FIREBASE DEBUG ===");
+console.log("Loaded API Key starts with:", process.env.EXPO_PUBLIC_FIREBASE_API_KEY?.substring(0, 15) + "...");
+console.log("======================");
+
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 

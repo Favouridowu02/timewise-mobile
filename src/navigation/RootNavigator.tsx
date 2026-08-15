@@ -8,6 +8,7 @@ import { LoginScreen } from '../features/auth/screens/LoginScreen';
 import { RegisterScreen } from '../features/auth/screens/RegisterScreen';
 import { ForgotPasswordScreen } from '../features/auth/screens/ForgotPasswordScreen';
 import { MainTabNavigator } from './MainTabNavigator';
+import { LoadingScreen } from '../components/ui/LoadingScreen';
 
 export type RootStackParamList = {
   Login: undefined;
@@ -23,20 +24,33 @@ export const RootNavigator = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let minTimeElapsed = false;
+    let authResolved = false;
+
+    // Minimum splash screen duration (2.5 seconds)
+    const timer = setTimeout(() => {
+      minTimeElapsed = true;
+      if (authResolved) {
+        setIsLoading(false);
+      }
+    }, 2500);
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setIsLoading(false);
+      authResolved = true;
+      if (minTimeElapsed) {
+        setIsLoading(false);
+      }
     });
 
-    return unsubscribe; // Cleanup subscription on unmount
+    return () => {
+      clearTimeout(timer);
+      unsubscribe();
+    };
   }, []);
 
   if (isLoading) {
-    return (
-      <View style={{ flex: 1, backgroundColor: '#000000', justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#ffffff" />
-      </View>
-    );
+    return <LoadingScreen />;
   }
 
   return (
